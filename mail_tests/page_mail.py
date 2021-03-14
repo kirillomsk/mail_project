@@ -45,7 +45,7 @@ class page(base):
         return theme
 
     def input_message(self):
-        message = self.find_xpath(conftest.message_input_locator)
+        message = self.find_element(conftest.message_input_locator)
         message.send_keys(conftest.message)
         return message
 

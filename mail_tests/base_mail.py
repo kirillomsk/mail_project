@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,12 +11,12 @@ class base:
 
     def find_element(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, locator))
+            EC.presence_of_element_located(locator)
         )
 
     def find_elements(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator))
+            EC.presence_of_all_elements_located(locator)
         )
 
     def select(self, locator, text):
@@ -25,6 +24,3 @@ class base:
 
     def get_site(self):
         return self.driver.get(self.url)
-
-    def find_xpath(self, locator):
-        return self.driver.find_element_by_xpath(locator)
