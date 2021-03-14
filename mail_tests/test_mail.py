@@ -2,13 +2,15 @@ from page_mail import page
 
 
 def test_mail(browser):
+    login = page(browser)
+    login.get_site()
+    login.write_login()
+    login.select_domain()
+    login.click_password_button()
+    password = page(browser)
+    password.write_password()
+    password.click_login_button()
     mail = page(browser)
-    mail.get_site()
-    mail.write_login()
-    mail.select_domain()
-    mail.click_password_button()
-    mail.write_password()
-    mail.click_login_button()
     mail.click_write_message_button()
     mail.input_recipient()
     mail.input_theme()

@@ -5,7 +5,6 @@ import conftest
 class page(base):
     def write_login(self):
         login_input = self.find_element(conftest.login_locator)
-        login_input.clear()
         login_input.send_keys(conftest.login_data['login'])
         return login_input
 
